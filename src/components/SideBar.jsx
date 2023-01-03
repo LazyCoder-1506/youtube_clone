@@ -3,9 +3,7 @@ import createTypography from "@mui/material/styles/createTypography";
 
 import { categories } from '../utils/constants';
 
-const selectedCategory = 'New'
-
-const Sidebar = () => {
+const Sidebar = ({ selectedCategory, setSelectedCategory }) => {
   return (
     <Stack
       direction="row"
@@ -18,6 +16,7 @@ const Sidebar = () => {
       {categories.map((category) => (
         <button
           className="category-btn"
+          onClick={() => setSelectedCategory(category.name)}
           style={{
             background: category.name === selectedCategory && '#fc1503',
             color: 'white'
